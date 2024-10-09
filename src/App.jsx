@@ -1,5 +1,6 @@
+import useLocalStorageState from "use-local-storage-state";
 import "./App.css";
-import { useState } from "react";
+// import { useState } from "react";
 import { uid } from "uid";
 import { initialColors } from "./lib/colors.js";
 import Color from "./Components/Color/Color.jsx";
@@ -7,7 +8,7 @@ import ColorForm from "./Components/ColorForm/ColorForm.jsx";
 
 
 function App() {
-  const [colors, setColors] = useState(initialColors);
+  const [colors, setColors] = useLocalStorageState("colors", {defaultValue: initialColors});
   const defaultData = { role: "some color", hex: "#123456", contrastText: "#FFFFFF"};
 
   function handleAddColor(newColor) {
