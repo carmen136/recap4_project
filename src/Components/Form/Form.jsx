@@ -1,4 +1,5 @@
 import ColorInput from "../ColorInput/ColorInput";
+import "./Form.css"
 
 export default function ColorForm({ onAddColor, initialData = { role: "some color", hex: "#123456", contrastText: "#FFFFFF"} }) {
     function handleSubmit(event) {
@@ -13,27 +14,27 @@ export default function ColorForm({ onAddColor, initialData = { role: "some colo
 
 return (
     <form onSubmit={handleSubmit}>
-        <label htmlFor="role">Role</label>
+        <label className="form__element" htmlFor="role">Role</label>
         {/* <select id="input_role" required>
             <option value="Font color" name="role">Font color</option>
             <option value="Background color" name="role">Background color</option>
             <option value="Highlight color" name="role">Highlight color</option>
             <option value="random" name="role">random</option>
         </select> */}
-        <input type="text" id="role" name="role" defaultValue={initialData.role}></input>
+        <input className="form__element" type="text" id="role" name="role" defaultValue={initialData.role}></input>
       <br />
-      <label htmlFor="hex">
+      <label className="form__element" htmlFor="hex">
         Hex
         <br />
         <ColorInput id="hex" defaultValue={initialData.hex} />
       </label>
       <br />
-      <label htmlFor="contrastText">
+      <label className="form__element" htmlFor="contrastText">
         Contrast Text
         <br />
         <ColorInput id="contrastText" defaultValue={initialData.contrastText} />
       </label>
-        <button type="submit">ADD COLOR</button>
+        <button className="form__element button" type="submit">ADD COLOR</button>
     </form>
 ) 
 

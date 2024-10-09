@@ -1,0 +1,28 @@
+
+form {
+    width: 50%;
+    margin: 20px auto;
+    background-color: #EEE;
+    padding: 20px 20px 10px;
+    border-radius: 10px;
+}
+
+.form__element {
+    width: 100%;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+
+.button {
+    margin-top: 20px;
+    border: none;
+    font-weight: bold;
+    background-color: rgb(94, 91, 91);
+    color: white;
+    padding: 3px 0;
+}
+
+.button:active {
+    background-color: black;
+}

@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "../Form/Form.css"
 
 export default function ColorInput({ id, defaultValue }) {
     const [color, setColor] = useState(defaultValue);
@@ -18,9 +18,9 @@ export default function ColorInput({ id, defaultValue }) {
 
     return (
         <>
-        <input type="text" id={id} value={color} name={id}  onChange={handleInputChange}></input>
+        <input className="form__element" type="text" id={id} value={color} name={id}  onChange={handleInputChange}></input>
 
-        <input type="color" value={color} onChange={handleInputChange}></input>
+        <input className="form__element" type="color" value={color} onChange={handleInputChange}></input>
         </>
     )
 }
