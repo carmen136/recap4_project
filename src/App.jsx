@@ -14,13 +14,19 @@ function App() {
 
   }
 
+  function handleDeleteColors(colorToDelete) {
+    setColors((colors) => colors.filter(color => color.id !== colorToDelete.id ))
+  }
+
   return (
     <>
       <h1>Theme Creator</h1>
       <ColorForm onAddColor={handleAddColors} />
 
+      {colors.length === 0 && <p>No colors left. Please add new colors.</p>}
+
       {colors.map((color) => {
-        return <Color key={color.id} color={color} />;
+        return <Color key={color.id} color={color} onDelete={handleDeleteColors} />;
       })}
     </>
   );
