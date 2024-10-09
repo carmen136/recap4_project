@@ -1,32 +1,37 @@
-import { initialColors } from "./lib/colors";
-import Color from "./Components/Color/Color";
-import ColorForm from "./Components/Form/Form";
 import "./App.css";
 import { useState } from "react";
 import { uid } from "uid";
+import { initialColors } from "./lib/colors.js";
+import Color from "./Components/Color/Color.jsx";
+import ColorForm from "./Components/ColorForm/ColorForm.jsx";
 
 
 function App() {
   const [colors, setColors] = useState(initialColors);
+  const defaultData = { role: "some color", hex: "#123456", contrastText: "#FFFFFF"};
 
-  function handleAddColors(newColor) {
+  function handleAddColor(newColor) {
     setColors([{id: uid(), ...newColor}, ...colors])
-
   }
 
-  function handleDeleteColors(colorToDelete) {
-    setColors((colors) => colors.filter(color => color.id !== colorToDelete.id ))
+  function handleDeleteColor(colorToDelete) {                                      // B: hier könnte man auch nur die id übergeben
+    setColors(colors.filter((color) => color.id !== colorToDelete.id ))
   }
+
+  function handleEditColor(id, changedColor) {
+    setColors(colors.map((color) => color.id === id ? { ...color, role: changedColor.role, hex: changedColor.hex, contrastText: changedColor.contrastText } : color ))
+  }
+
 
   return (
     <>
       <h1>Theme Creator</h1>
-      <ColorForm onAddColor={handleAddColors} />
+      <ColorForm defaultData={defaultData} addColor={handleAddColor} editColor={handleEditColor} mode={"ADD"} />
 
-      {colors.length === 0 && <p>No colors left. Please add new colors.</p>}
+      {colors.length === 0 && <p>No colors saved. Start adding one!.</p>}
 
       {colors.map((color) => {
-        return <Color key={color.id} color={color} onDelete={handleDeleteColors} />;
+        return <Color key={color.id} color={color} deleteColor={handleDeleteColor} editColor={handleEditColor} />;
       })}
     </>
   );
