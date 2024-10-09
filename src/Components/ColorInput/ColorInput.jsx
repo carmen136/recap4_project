@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../Form/Form.css"
+import "../ColorForm/ColorForm.css"
 
 export default function ColorInput({ id, defaultValue }) {
     const [color, setColor] = useState(defaultValue);

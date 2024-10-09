@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function DeleteButton({ color, onDelete }) {
+export default function DeleteButton({ color, deleteColor }) {
     const [showConfirm, setShowConfirm] = useState(false);
 
 
@@ -14,11 +14,9 @@ export default function DeleteButton({ color, onDelete }) {
     }
 
     function handleDeleteClick() {
-        onDelete(color);        // übergibt das color object zum löschen
+        deleteColor(color);        // übergibt das color object zum löschen
         setShowConfirm(false);
     }
-
-
 
     return (
         <>
