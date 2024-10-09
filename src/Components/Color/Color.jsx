@@ -1,6 +1,7 @@
 import "./Color.css";
 import DeleteButton from "../DeleteButton/DeleteButton.jsx"
 import EditButton from "../EditButton/EditButton.jsx";
+import CopyButton from "../CopyButton/CopyButton.jsx";
 
 export default function Color({ color, deleteColor, editColor }) {
   return (
@@ -12,6 +13,7 @@ export default function Color({ color, deleteColor, editColor }) {
       }}
     >
       <h3 className="color-card-highlight">{color.hex}</h3>
+      <CopyButton color={color} />
       <h4>{color.role}</h4>
       <p>contrast: {color.contrastText}</p>
       <DeleteButton color={color} deleteColor={deleteColor} />
