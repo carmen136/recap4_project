@@ -1,0 +1,22 @@
+
+
+.select-section {
+    margin: 30px auto 0px;
+    width: 45%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+
+}
+
+select {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    width: 80px;
+    border-radius: 20px;
+}

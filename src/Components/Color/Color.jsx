@@ -1,7 +1,7 @@
 import "./Color.css";
-import DeleteButton from "../DeleteButton/DeleteButton.jsx"
-import EditButton from "../EditButton/EditButton.jsx";
-import CopyButton from "../CopyButton/CopyButton.jsx";
+import DeleteButton from "../Buttons/DeleteButton.jsx"
+import EditButton from "../Buttons/EditButton.jsx";
+import CopyButton from "../Buttons/CopyButton.jsx";
 import ColorContrastChecker from "./ColorContrastChecker.jsx";
 
 export default function Color({ color, deleteColor, editColor }) {

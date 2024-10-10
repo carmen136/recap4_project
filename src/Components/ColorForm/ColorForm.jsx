@@ -11,7 +11,7 @@ export default function ColorForm({ addColor, editColor, mode, defaultData }) {
           addColor(data);
           event.target.reset();
         } else if (mode === "UPDATE") {
-          editColor(defaultData.id, data);                      // defaultData hier einsetzen!                   
+          editColor(defaultData.id, data);                  // defaultData hier einsetzen!                   
           event.target.reset();
         }
     }
@@ -39,13 +39,3 @@ return (
 
 }
 
-
-
-// inputs: 
-// Role -> sollte ein Dropdown input sein -> select
-// Hex ->  text input & color input
-// Contrast Text -> text input & color input, sollte aber automatisch den Kontrast zu der Hex color anzeigen
-// ADD COLOR -> submit button
-
-// bei submit:
-// alle Inputs der Form sollen ein neues Objekt im Initialcolors Array erzeugen
