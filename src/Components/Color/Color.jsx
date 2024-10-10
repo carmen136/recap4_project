@@ -2,6 +2,7 @@ import "./Color.css";
 import DeleteButton from "../DeleteButton/DeleteButton.jsx"
 import EditButton from "../EditButton/EditButton.jsx";
 import CopyButton from "../CopyButton/CopyButton.jsx";
+import ColorContrastChecker from "./ColorContrastChecker.jsx";
 
 export default function Color({ color, deleteColor, editColor }) {
   return (
@@ -16,6 +17,7 @@ export default function Color({ color, deleteColor, editColor }) {
       <CopyButton color={color} />
       <h4>{color.role}</h4>
       <p>contrast: {color.contrastText}</p>
+      <ColorContrastChecker color={color} />
       <DeleteButton color={color} deleteColor={deleteColor} />
       <EditButton color={color} editColor={editColor}  />
     </div>

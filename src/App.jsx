@@ -7,6 +7,7 @@ import Color from "./Components/Color/Color.jsx";
 import ColorForm from "./Components/ColorForm/ColorForm.jsx";
 
 
+
 function App() {
   const [colors, setColors] = useLocalStorageState("colors", {defaultValue: initialColors});
   const defaultData = { role: "some color", hex: "#123456", contrastText: "#FFFFFF"};
@@ -34,6 +35,7 @@ function App() {
       {colors.map((color) => {
         return <Color key={color.id} color={color} deleteColor={handleDeleteColor} editColor={handleEditColor} />;
       })}
+      
     </>
   );
 }
