@@ -28,3 +28,10 @@ export default function CopyButton( {color} ) {
 }
 
 
+// beim herauslöschen der default Werte erscheint in der Konsole eine Warnung:
+
+/*
+react-dom_client.js?v=e42a3fe9:2076 The specified value "#1234" does not conform to 
+the required format.  The format is "#rrggbb" where rr, gg, bb are two-digit 
+hexadecimal numbers.
+*/
