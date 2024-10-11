@@ -13,10 +13,10 @@ export default function Select({ themes, currentTheme, setCurrentThemeId, editTh
 	function handleEdit(event) {
 		event.preventDefault();
 		const response = new FormData(event.target);
-		const { name } = Object.fromEntries(response);
+		const { name } = Object.fromEntries(response);					
 
 		setToggleEdit(false);
-		editTheme(currentTheme.id, name);
+		editTheme(currentTheme.id, name);								// Funktion editTheme die als Prop aus der App Component übergeben wurde
 	}
 	function handleDelete() {
 		deleteTheme(currentTheme.id);
@@ -24,10 +24,10 @@ export default function Select({ themes, currentTheme, setCurrentThemeId, editTh
 	}
 	function handleAdd(event) {
 		event.preventDefault();
-		const response = new FormData(event.target);
+		const response = new FormData(event.target);					// FormData(event.target) -> Daten aus der Form, hier: Name eines neuen Themes
 		const { newThemeName } = Object.fromEntries(response);
 
-		addTheme(newThemeName);
+		addTheme(newThemeName);											// Funktion addTheme die als Prop aus der App Component übergeben wurde. Hier übergeben wir den Namen des neuen Themes mit dem in der Form eingetragenen Namen an die addTheme Function
 		setToggleAdd(false);
 	}
 
@@ -69,6 +69,7 @@ export default function Select({ themes, currentTheme, setCurrentThemeId, editTh
 			</section>
 		);
 
+	// Der Default Zustand der Select Component:	
 	return (
 		<section className="select-section">
 			<select name="themes" onChange={handleChange} defaultValue={currentTheme.name}>

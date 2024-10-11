@@ -67,19 +67,19 @@ function App() {
     // die Theme functions 
     // Bsp handleAddTheme-> man fügt ein neues Theme als Objekt in das initialThemes Array hinzu
 
-    function handleAddTheme(newTheme) {
+    function handleAddTheme(newThemeName) {
       const id = uid();
-      setThemes([{id: id, name: newTheme, colors: []}]);
+      setThemes([...themes, {id: id, name: newThemeName, colors: []}]); 
       setCurrentThemeId(id);
     }
 
-    function handleDeleteTheme(removedTheme) {
-      setThemes(themes.filter((theme) => theme.id !== removedTheme.id ));
+    function handleDeleteTheme(removedThemeId) {        // nur die Id weil wir in der Select Component nur die ID des Themes übergeben
+      setThemes(themes.filter((theme) => theme.id !== removedThemeId ));
       setCurrentThemeId(themes[0].id); // warum?
     }
 
-    function handleEditTheme(id, changedTheme) {
-      setThemes(themes.map((theme) => theme.id === id ? { ...theme, name: changedTheme.name } : theme ))
+    function handleEditTheme(id, editedThemeName) {    // nur "name" weil wir in der Select Component nur den Namen des Themes übergeben
+      setThemes(themes.map((theme) => (theme.id === id ? { ...theme, name: editedThemeName } : theme )))
     }
   
 
