@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 
-
-
 async function getContrastCheck(color) {
     try {
         const response = await fetch("https://www.aremycolorsaccessible.com/api/are-they",
@@ -24,7 +22,7 @@ async function getContrastCheck(color) {
 
 
 
-export default function ColorContrastChecker({color}){
+export default function ContrastChecker({color}){
     const [result, setResult] = useState(null);
 
     useEffect(() => {

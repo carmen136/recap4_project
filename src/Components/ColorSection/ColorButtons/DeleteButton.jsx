@@ -3,11 +3,9 @@ import { useState } from "react"
 export default function DeleteButton({ color, deleteColor }) {
     const [showConfirm, setShowConfirm] = useState(false);
 
-
-    function handleClick() {
+    function handleShowConfirm() {
         setShowConfirm(true);
     }
-
 
     function handleCancelClick() {
         setShowConfirm(false);
@@ -23,11 +21,11 @@ export default function DeleteButton({ color, deleteColor }) {
         {showConfirm ? (
             <>
             <p className="color-card-highlight">Really delete?</p>
-            <button type="button" onClick={handleCancelClick}>CANCEL</button>
-            <button type="button" onClick={handleDeleteClick}>DELETE</button>
+            <button type="button" onClick={handleCancelClick}>Cancel</button>
+            <button type="button" onClick={handleDeleteClick}>Delete</button>
             </>
         ) : (
-            <button type="button" onClick={handleClick}>DELETE</button>
+            <button type="button" onClick={handleShowConfirm}>Delete</button>
         )}
         </>
     );

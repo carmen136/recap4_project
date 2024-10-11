@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../ColorForm/ColorForm.css"
+
 
 export default function ColorInput({ id, defaultValue }) {
     const [color, setColor] = useState(defaultValue);
@@ -7,14 +7,6 @@ export default function ColorInput({ id, defaultValue }) {
     const handleInputChange = (event) => {
     setColor(event.target.value)
     }
-
-    // const  handleTextChange = (event) => {
-    // const newColor = event.target.value;
-
-    // if(/^#[0-9A-F]{6}$/i.test(newColor)) {
-    //     setColor(newColor);
-    //     }
-    // }
 
     return (
         <>

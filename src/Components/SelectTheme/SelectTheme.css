@@ -1,0 +1,35 @@
+
+
+.select-section {
+    margin: 30px auto 0px;
+    width: 45%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    border: 2px solid darkgrey;
+    border-radius: 20px;
+    padding: 20px;
+    align-items: center;
+
+}
+
+.select-form {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+select, input {
+    width: 100%;
+    border-radius: 10px;
+}
+
+button {
+    min-width: 80px;
+    border-radius: 20px;
+    margin: 10px 2.5px;
+}
