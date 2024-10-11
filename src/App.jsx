@@ -1,10 +1,9 @@
 import useLocalStorageState from "use-local-storage-state";
 import "./App.css";
-// import { useState } from "react";
 import { uid } from "uid";
 import { initialThemes } from "./lib/colors.js";
-import Theme from "./Components/Theme/Theme.jsx";
-import Select from "./Select/B_select.jsx";
+import ThemeRepository from "./Components/ThemeRepository/ThemeRepository.jsx";
+import SelectTheme from "./Components/SelectTheme/SelectTheme.jsx";
 
 function App() {
 
@@ -29,7 +28,7 @@ function App() {
   const [themes, setThemes] = useLocalStorageState("themes", { defaultValue: initialThemes });
 	const [currentThemeId, setCurrentThemeId] = useLocalStorageState("currentThemeId", { defaultValue: "t1" });
 
-  // ??????? Warum brauchen wir currentTheme hier? // wir übergeben currentTheme als prop in die Form Function
+  // Warum brauchen wir currentTheme hier? // wir übergeben currentTheme als prop in die Form Function
 	const currentTheme = themes.find((theme) => theme.id === currentThemeId);
 
 
@@ -75,7 +74,7 @@ function App() {
 
     function handleDeleteTheme(removedThemeId) {        // nur die Id weil wir in der Select Component nur die ID des Themes übergeben
       setThemes(themes.filter((theme) => theme.id !== removedThemeId ));
-      setCurrentThemeId(themes[0].id); // warum?
+      setCurrentThemeId(themes[0].id); // warum? Wir setzen currentTheme auf das erste Array-Element im Themesobjekt
     }
 
     function handleEditTheme(id, editedThemeName) {    // nur "name" weil wir in der Select Component nur den Namen des Themes übergeben
@@ -95,8 +94,8 @@ function App() {
       {currentTheme.colors.map((color) => {
         return <Color key={color.id} color={color} deleteColor={handleDeleteColor} editColor={handleEditColor} />;
       })} */}
-      <Select themes={themes} currentTheme={currentTheme} setCurrentThemeId={setCurrentThemeId} addTheme={handleAddTheme} deleteTheme={handleDeleteTheme} editTheme={handleEditTheme} />
-    <Theme currentTheme={currentTheme} addColor={handleAddColor} deleteColor={handleDeleteColor} editColor={handleEditColor} />  
+      <SelectTheme themes={themes} currentTheme={currentTheme} setCurrentThemeId={setCurrentThemeId} addTheme={handleAddTheme} deleteTheme={handleDeleteTheme} editTheme={handleEditTheme} />
+      <ThemeRepository currentTheme={currentTheme} addColor={handleAddColor} deleteColor={handleDeleteColor} editColor={handleEditColor} />  
     </>
   );
 }

@@ -1,7 +1,7 @@
-import "./Select.css";
+import "./SelectTheme.css";
 import { useState } from "react";
 
-export default function Select({ themes, currentTheme, setCurrentThemeId, editTheme, deleteTheme, addTheme }) {
+export default function SelectTheme({ themes, currentTheme, setCurrentThemeId, editTheme, deleteTheme, addTheme }) {
 	const [toggleEdit, setToggleEdit] = useState(false);
 	const [toggleDelete, setToggleDelete] = useState(false);
 	const [toggleAdd, setToggleAdd] = useState(false);
@@ -46,7 +46,7 @@ export default function Select({ themes, currentTheme, setCurrentThemeId, editTh
 	if (toggleEdit)
 		return (
 			<section className="select-section">
-				<form onSubmit={handleEdit}>
+				<form className="select-form" onSubmit={handleEdit}>
 					<input type="text" name="name" defaultValue={currentTheme.name} required />
 					<button type="submit">Update Theme</button>
 					<button type="button" onClick={() => setToggleEdit(false)}>
@@ -59,7 +59,7 @@ export default function Select({ themes, currentTheme, setCurrentThemeId, editTh
 	if (toggleAdd)
 		return (
 			<section className="select-section">
-				<form onSubmit={handleAdd}>
+				<form className="select-form" onSubmit={handleAdd}>
 					<input type="text" name="newThemeName" defaultValue="New Theme" required />
 					<button type="submit">Add Theme</button>
 					<button type="button" onClick={() => setToggleAdd(false)}>
@@ -83,7 +83,7 @@ export default function Select({ themes, currentTheme, setCurrentThemeId, editTh
 				Add
 			</button>
 			<button type="button" onClick={() => setToggleEdit(true)} disabled={currentTheme.name === "Default Theme"}>
-				Edit
+				Edit 🖊
 			</button>
 			<button type="button" onClick={() => setToggleDelete(true)} disabled={currentTheme.name === "Default Theme"}>
 				Delete

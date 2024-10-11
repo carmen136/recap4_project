@@ -1,10 +1,11 @@
-import "./Color.css";
-import DeleteButton from "../Buttons/DeleteButton.jsx"
-import EditButton from "../Buttons/EditButton.jsx";
-import CopyButton from "../Buttons/CopyButton.jsx";
-import ColorContrastChecker from "./ColorContrastChecker.jsx";
+import "./ColorCard.css";
+import DeleteButton from "./ColorButtons/DeleteButton.jsx"
+import EditButton from "./ColorButtons/EditButton.jsx";
+import CopyButton from "./ColorButtons/CopyButton.jsx";
+import ContrastChecker from "./ContrastChecker/ContrastChecker.jsx";
 
-export default function Color({ color, deleteColor, editColor }) {
+
+export default function ColorCard({ color, deleteColor, editColor }) {
   return (
     <div
       className="color-card"
@@ -17,7 +18,7 @@ export default function Color({ color, deleteColor, editColor }) {
       <CopyButton color={color} />
       <h4>{color.role}</h4>
       <p>contrast: {color.contrastText}</p>
-      <ColorContrastChecker color={color} />
+      <ContrastChecker color={color} />
       <DeleteButton color={color} deleteColor={deleteColor} />
       <EditButton color={color} editColor={editColor}  />
     </div>

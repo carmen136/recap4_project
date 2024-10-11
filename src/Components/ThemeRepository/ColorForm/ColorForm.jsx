@@ -1,5 +1,6 @@
-import ColorInput from "../ColorInput/ColorInput";
 import "./ColorForm.css"
+import ColorInput from "./ColorInput/ColorInput";
+
 
 export default function ColorForm({ addColor, editColor, mode, defaultData }) {
     function handleSubmit(event) {
@@ -7,10 +8,10 @@ export default function ColorForm({ addColor, editColor, mode, defaultData }) {
         const formData = new FormData(event.target);        // ist eine Standardschreibweise dafür, dass aus den Eingaben des Formulars ein Objekt (hier: formData) erstellt wird
         const data = Object.fromEntries(formData);          // ist eine Standardschreibweise dafür, dass "formData" in ein JS Objekt umgewandelt wird
         
-        if(mode === "ADD") {
+        if(mode === "Add") {
           addColor(data);
           event.target.reset();
-        } else if (mode === "UPDATE") {
+        } else if (mode === "Update") {
           editColor(defaultData.id, data);                  // defaultData hier einsetzen!                   
           event.target.reset();
         }
@@ -33,7 +34,7 @@ return (
         <br />
         <ColorInput id="contrastText" defaultValue={defaultData.contrastText} />
       </label>
-        <button className="form__element button" type="submit">{mode} COLOR</button>
+        <button className="form__element button" type="submit">{mode} color!</button>
     </form>
 ) 
 

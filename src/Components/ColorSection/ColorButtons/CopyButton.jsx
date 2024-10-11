@@ -4,17 +4,17 @@ import { useState } from "react";
 export default function CopyButton( {color} ) {
 
     const copiedHex = color.hex;
-    const [label, setLabel] = useState("COPY");
+    const [label, setLabel] = useState("Copy");
 
    
     async function copyHex() {
         try {
             await navigator.clipboard.writeText(copiedHex);
-            setLabel("SUCCESSFULLY COPIED!")
+            setLabel("Successfully copied!")
 
             // Timer setzen, um Textinhalt des Buttons nach 3 sek wieder zurückzusetzen
             setTimeout(() => {
-                setLabel("COPY");
+                setLabel("Copy");
             }, 3000)
 
         } catch (error) {
